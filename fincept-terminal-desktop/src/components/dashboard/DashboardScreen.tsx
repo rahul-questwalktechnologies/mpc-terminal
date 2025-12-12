@@ -41,6 +41,8 @@ import { TradingTab } from '@/components/tabs/TradingTab';
 import ReportBuilderTab from '@/components/tabs/ReportBuilderTab';
 import BacktestingTab from '@/components/tabs/BacktestingTab';
 import RecordedContextsManager from '@/components/common/RecordedContextsManager';
+import MpcashTab from '../tabs/MpcashTab';
+import { Coins } from 'lucide-react'; // Or any icon you like
 
 // Dropdown Menu Component
 const DropdownMenu = ({ label, items, onItemClick }: { label: string; items: any[]; onItemClick: (item: any) => void }) => {
@@ -764,6 +766,13 @@ function FinxeptTerminalContent() {
               Dashboard
             </TabsTrigger>
             <TabsTrigger
+              value="mpcash"
+              style={activeTab === 'mpcash' ? tabStyles.active : tabStyles.default}
+              title="MPCASH Ledger"
+            >
+              MPCASH
+            </TabsTrigger>
+            <TabsTrigger
               value="markets"
               style={activeTab === 'markets' ? tabStyles.active : tabStyles.default}
               title="Markets (F2)"
@@ -919,6 +928,9 @@ function FinxeptTerminalContent() {
             <TabsContent value="dashboard" className="h-full m-0 p-0">
               <DashboardTab onNavigateToTab={setActiveTab} />
             </TabsContent>
+          <TabsContent value="mpcash" className="h-full m-0 p-0">
+            <MpcashTab />
+          </TabsContent>
           <TabsContent value="markets" className="h-full m-0 p-0">
             <MarketsTab />
           </TabsContent>
